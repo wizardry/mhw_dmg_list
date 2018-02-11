@@ -1,61 +1,84 @@
 <style lang="scss" scoped>
-  th,td {
-    text-align: center;
-    border: 1px solid #3f3f3f;
-  }
-  th {
-    background: #565656;
-    font-weight: bold;
-    color: #cfcfcf;
-    vertical-align: middle;
-  }
-  p {
-    margin-top: 8px;
-    font-size:18px;
-  }
-  .inner_table {
-    font-size: 14px;
-    margin: 8px 0 0;
-    width: 100%;
-
-    td {
-      padding: 4px;
-      border-bottom: none;
-
-      &:last-child {
-        border-right: none;
-      }
-      &:first-child {
-        border-left: none;
-      }
-    }
-
-    +.inner_table {
-      margin-top: 0;
-    }
-  }
+.cellInner {
+  margin: -6px -32px 0 -24px; 
+}
+.sharpness {
+  margin: 0;
+  text-align: center;
+  line-height: 2;
+  &.green { background: #35c155; }
+  &.blue { background: #66dbff; }
+  &.white { background: #f1f1f1; color:#3f3f3f}
+}
+.atk{
+  text-align: center;
+  font-size: 18px; 
+  margin: 0.5em;
+}
+.cri1 {
+  color: #c33;
+}
+.cri2 {
+  color: #66dbff;
+}
+.cri3 {
+  color: #2b9844;
+}
+.cri4 {
+  color: #35c155;
+}
+.cri5 {
+  color: #8fe0a2;
+}
+.sharpnessTable {
+  margin: -6px -32px 0px -24px;
+}
 </style>
 
 <template>
-  <tr>
-    <th>{{rowHeader}}</th>
-    <td v-for="sharp in [sharpGreen, sharpBlue, sharpWhite]">
-      <p>{{sharp}}</p>
-      <table class="inner_table">
-        <tr>
-          <td class="cri1">負会心：{{Math.floor(sharp * critical[1].magnification)}}</td>
-          <td class="cri2">会心：{{Math.floor(sharp * critical[2].magnification)}}</td>          
-        </tr>
-      </table>
-      <table class="inner_table">
-        <tr>
-          <td class="cri3">超1:{{Math.floor(sharp * critical[3].magnification)}}</td>
-          <td class="cri4">超2:{{Math.floor(sharp * critical[4].magnification)}}</td>
-          <td class="cri5">超3:{{Math.floor(sharp * critical[5].magnification)}}</td>
-        </tr>
-      </table>
-    </td>
-  </tr>
+  <md-table-row v-if="getWindowWidth < 1024">
+    <md-table-cell style="font-size:16px;">{{rowHeader}}</md-table-cell>
+    <md-table-cell>
+      <div class="sharpnessTable">
+        <md-table>
+          <md-table-row v-for="(sharp, index) in [sharpGreen, sharpBlue, sharpWhite]">
+            <md-table-cell>
+              <div class="cellInner">
+                <p v-if="index == 0" class="sharpness green">切れ味：緑</p>
+                <p v-if="index == 1" class="sharpness blue">切れ味：青</p>
+                <p v-if="index == 2" class="sharpness white">切れ味：白</p>
+                <p class="atk">{{sharp}}</p>
+                <div class="md-layout md-gutter">
+                  <div class="md-layout-item cri1">負会心：{{Math.floor(sharp * critical[1].magnification)}}</div>
+                  <div class="md-layout-item cri2">会心：{{Math.floor(sharp * critical[2].magnification)}}</div>
+                </div>
+                <div class="md-layout md-gutter">
+                  <div class="md-layout-item cri3">超1:{{Math.floor(sharp * critical[3].magnification)}}</div>
+                  <div class="md-layout-item cri4">超2:{{Math.floor(sharp * critical[4].magnification)}}</div>
+                  <div class="md-layout-item cri5">超3:{{Math.floor(sharp * critical[5].magnification)}}</div>
+                </div>
+              </div>
+            </md-table-cell>
+          </md-table-row>
+        </md-table>
+      </div>
+    </md-table-cell>
+  </md-table-row>
+  <md-table-row v-else>
+    <md-table-cell style="font-size:16px;">{{rowHeader}}</md-table-cell>
+    <md-table-cell v-for="(sharp, index) in [sharpGreen, sharpBlue, sharpWhite]">
+      <p class="atk">{{sharp}}</p>
+      <div class="md-layout md-gutter">
+        <div class="md-layout-item cri1">負会心：{{Math.floor(sharp * critical[1].magnification)}}</div>
+        <div class="md-layout-item cri2">会心：{{Math.floor(sharp * critical[2].magnification)}}</div>
+      </div>
+      <div class="md-layout md-gutter">
+        <div class="md-layout-item cri3">超1:{{Math.floor(sharp * critical[3].magnification)}}</div>
+        <div class="md-layout-item cri4">超2:{{Math.floor(sharp * critical[4].magnification)}}</div>
+        <div class="md-layout-item cri5">超3:{{Math.floor(sharp * critical[5].magnification)}}</div>
+      </div>
+    </md-table-cell>
+  </md-table-row>
 </template>
 <script>
 import { mapMutations } from 'vuex'
@@ -66,7 +89,7 @@ export default {
   props: ['item'],
   data () {
     return {
-      critical: critical
+      critical: critical,
     }
   },
   directives: {
@@ -80,6 +103,8 @@ export default {
       return this.item.data[0]; },
     sharpBlue(){ return this.item.data[1]; },
     sharpWhite(){ return this.item.data[2]; },
+    getWindowWidth(){ return this.$store.state.window_width; },
+
   },
   methods: {
     ...mapMutations([

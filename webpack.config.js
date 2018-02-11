@@ -24,6 +24,15 @@ module.exports = {
           img: '',
         }
       }
+    },{
+      test: /\.css/,
+      use: ['style-loader', {
+        loader: 'css-loader',
+        options: {
+          url: false,
+          sourceMap: true,
+        },
+      }],
     }],
   },
   devServer: {

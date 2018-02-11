@@ -1,91 +1,108 @@
 <style lang="scss" scoped>
-header {
+.form {
+  margin-top: 40px;
+  background: #f1f1f1;
+  color: #363636;
 }
-.mainContent {
-  table {
-    border-collapse: collapse;
-    border: 1px solid #3f3f3f;
+.md-app {
+  max-height: 400px;
+  border: 1px solid rgba(#000, .12);
+}
 
-    th,td {
-      padding: 8px;  
-      border: 1px solid #3f3f3f;
-    }
-
-    th {
-      background: #565656;
-      font-weight: bold;
-      color: #cfcfcf;
-    }
-
-    td {
-    }
+.large {
+  .md-app {
+    max-height: none;
   }
 }
 footer {
+  text-align: right;
+  padding: 4px 16px;
+  font-size: 12px;
 }
+
 </style>
 <template>
-  <section class="materialCalcApp">
-    <!-- header -->
-    <header>
-      MHW攻撃力簡易リスト
-    </header>
-    <div class="appWrapper">
-      <form>
-        <dl>
-          <dt>武器種別</dt>
-          <dd>
-            <select name="wepon_type" id="" @change.prevent="onChangeWeponType">
-              <option v-for="wepon in wepons" :value="wepon.id">{{wepon.name}}</option>
-            </select>
-          </dd>
-        </dl>
-        <dl>
-          <dt>武器攻撃力</dt>
-          <dd>
-            <select name="wep_atk_max" type="number" @change.prevent="onChangeWeponAtackMin">
-              <option v-for="atack in atacks.concat().reverse()" :value="atack">{{Math.floor(atack * wepon_magnification) }}</option>
-            </select>
-            ～
-            <select name="wep_atk_min" type="number" @change.prevent="onChangeWeponAtackMax">
-              <option v-for="atack in atacks" :value="atack">{{Math.floor(atack * wepon_magnification) }}</option>
-            </select>
-          </dd>
-        </dl>
-      </form>
-      <div class="mainContent">
-        <div class="sharp_list">
-          <table>
-            <thead>
-              <th>基礎攻撃力 / 切れ味</th>
-              <th>切れ味：緑</th>
-              <th>切れ味：青</th>
-              <th>切れ味：白</th>
-            </thead>
-            <item v-for="(item, index) in items" :key="index" :item="item"></item>
-          </table>
-        </div>
-      </div>
-    </div>
-    <footer>developper by wiz_rein</footer>
-  </section>
+  <div class="page-container" v-bind:class="{large: getWindowWidth > 1024}">
+    <md-app md-mode="reveal">
+      <md-app-toolbar class="md-primary" style="top: -60px">
+        <span class="md-title">MHW攻撃力簡易リスト</span>
+      </md-app-toolbar>
+      <md-app-content style="margin-top: 40px">
+        <section class="materialCalcApp">
+          <form>
+            <div class="md-layout md-gutter">
+              <div class="md-layout-item">
+                <md-field>
+                  <label for="wepon_type">武器種別</label>
+                  <md-select name="wepon_type" id="wepon_type" v-model="wepon_type" @change.prevent="onChangeWeponType">
+                    <md-option v-for="wepon in wepons" :value="wepon.id">{{wepon.name}}</md-option>
+                  </md-select>
+                </md-field>
+              </div>
+            </div>
+            <div class="md-layout md-gutter">
+              <div class="md-layout-item">
+                <md-field>
+                  <label>武器攻撃力</label>
+                  <md-select name="wep_atk_max" type="number" v-model="min_atk" @change.prevent="onChangeWeponAtackMin">
+                    <md-option v-for="atack in atacks.concat().reverse()" :value="atack">{{Math.floor(atack * wepon_magnification) }}</md-option>
+                  </md-select>
+                </md-field>
+              </div>
+              <div class="md-layout-item md-size-10" style="text-align:center;">
+                <div style="padding-top: 30px">～</div>
+              </div>
+              <div class="md-layout-item">
+                <md-field>
+                  <md-select name="wep_atk_min" type="number" v-model="max_atk" @change.prevent="onChangeWeponAtackMax">
+                    <md-option v-for="atack in atacks" :value="atack">{{Math.floor(atack * wepon_magnification) }}</md-option>
+                  </md-select>
+                </md-field>
+              </div>
+            </div>
+          </form>
+          <div class="mainContent">
+            <div class="sharp_list">
+              <md-table>
+                <md-table-row v-if="getWindowWidth < 1024">
+                  <md-table-head style="width:2em">atk</md-table-head>
+                  <md-table-head></md-table-head>
+                </md-table-row>
+                <md-table-row v-else>
+                  <md-table-head>基礎攻撃力 / 切れ味</md-table-head>
+                  <md-table-head>切れ味：緑</md-table-head>
+                  <md-table-head>切れ味：青</md-table-head>
+                  <md-table-head>切れ味：白</md-table-head>
+                </md-table-row>
+                <item v-for="(item, index) in items" :key="index" :item="item"></item>
+              </md-table>
+            </div>
+          </div>
+        </section>
+      </md-app-content>
+    </md-app>
+    <footer>developper by <a href="https://twitter.com/wiz_rein" target="_blank">wiz_rein</footer>
+  </div>
 </template>
 
 <script>
 import { mapMutations } from 'vuex'
+import { MdApp, MdContent } from 'vue-material/dist/components'
 import Item from './Item.vue'
 import {wepons, critical, sharp, APP_VERSION} from '../store/const.js'
 
 export default {
+  name: 'Reveal',
   components: { Item },
   data () {
     return {
+      menuVisible: false,
       wepons: wepons,
-      current_wepon: 0,
+      wepon_type: this.$store.state.wepon_type,
+      min_atk: this.$store.state.min_atk,
+      max_atk: this.$store.state.max_atk,
       atacks: [ 250, 240, 230, 220, 210, 200, 190, 180, 170, 160, 150, 140, 130, 120, 110, 100, 90, 80],
       sharp: sharp,
-      sharp_table: [],
-      critical_table: [],
     }
   },
   directives: {
@@ -129,6 +146,11 @@ export default {
       console.log(min, max, itemData)
       return itemData;
     },
+    getWindowWidth() { return this.$store.state.window_width; },
+    getWindowHeight() { 
+      console.log(window.innerHeight);
+      return window.innerHeight; },
+
   },
   methods: {
     onChangeWeponType(e) {

@@ -2,7 +2,8 @@ export const state = {
   min_atk: 80,
   max_atk: 220,
   wepon_type: 0,
-  critical_type: 0
+  critical_type: 0,
+  window_width: window.innerWidth
 }
 
 export const mutations = {
@@ -18,4 +19,8 @@ export const mutations = {
     console.log(state, values)
     state.max_atk = values
   },
+  changeWindowWidth (state, value) {
+    console.log(state, value)
+    state.window_width = value
+  }
 }
