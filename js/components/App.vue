@@ -8,7 +8,9 @@
   max-height: 400px;
   border: 1px solid rgba(#000, .12);
 }
-
+.md-content {
+  padding: 16px 4px;
+}
 .large {
   .md-app {
     max-height: none;
@@ -19,7 +21,6 @@ footer {
   padding: 4px 16px;
   font-size: 12px;
 }
-
 </style>
 <template>
   <div class="page-container" v-bind:class="{large: getWindowWidth > 1024}">
@@ -34,8 +35,8 @@ footer {
               <div class="md-layout-item">
                 <md-field>
                   <label for="wepon_type">武器種別</label>
-                  <md-select name="wepon_type" id="wepon_type" v-model="wepon_type" @change.prevent="onChangeWeponType">
-                    <md-option v-for="wepon in wepons" :value="wepon.id">{{wepon.name}}</md-option>
+                  <md-select name="wepon_type" id="wepon_type" v-model="wepon_type" @md-selected="onChangeWeponType">
+                    <md-option v-for="(wepon,index) in wepons" :key="index" :value="wepon.id">{{wepon.name}}</md-option>
                   </md-select>
                 </md-field>
               </div>
@@ -44,8 +45,8 @@ footer {
               <div class="md-layout-item">
                 <md-field>
                   <label>武器攻撃力</label>
-                  <md-select name="wep_atk_max" type="number" v-model="min_atk" @change.prevent="onChangeWeponAtackMin">
-                    <md-option v-for="atack in atacks.concat().reverse()" :value="atack">{{Math.floor(atack * wepon_magnification) }}</md-option>
+                  <md-select v-if="!refresh_flg" name="wep_atk_max" type="number" v-model="min_atk" @md-selected="onChangeWeponAtackMin">
+                    <md-option v-for="(atack, index) in atacks.concat().reverse()" :key="index" :value="atack">{{Math.floor(atack * wepon_magnification) }}</md-option>
                   </md-select>
                 </md-field>
               </div>
@@ -54,8 +55,8 @@ footer {
               </div>
               <div class="md-layout-item">
                 <md-field>
-                  <md-select name="wep_atk_min" type="number" v-model="max_atk" @change.prevent="onChangeWeponAtackMax">
-                    <md-option v-for="atack in atacks" :value="atack">{{Math.floor(atack * wepon_magnification) }}</md-option>
+                  <md-select v-if="!refresh_flg" name="wep_atk_min" type="number" v-model="max_atk" @md-selected="onChangeWeponAtackMax">
+                    <md-option v-for="(atack, index) in atacks" :key="index" :value="atack">{{Math.floor(atack * wepon_magnification) }}</md-option>
                   </md-select>
                 </md-field>
               </div>
@@ -98,11 +99,12 @@ export default {
     return {
       menuVisible: false,
       wepons: wepons,
+      atacks: [230, 220, 210, 200, 190, 180, 170, 160, 150, 140, 130, 120, 110, 100, 90, 80],
       wepon_type: this.$store.state.wepon_type,
       min_atk: this.$store.state.min_atk,
       max_atk: this.$store.state.max_atk,
-      atacks: [ 250, 240, 230, 220, 210, 200, 190, 180, 170, 160, 150, 140, 130, 120, 110, 100, 90, 80],
       sharp: sharp,
+      refresh_flg: false, // optionの最新値を反映させるため再描画させるフラグ
     }
   },
   directives: {
@@ -111,7 +113,7 @@ export default {
   },
   computed: {
     wepon_magnification() {
-      console.log('wepon_magnification')
+      console.log('wepon_magnification', this.$store.state.wepon_type)
       return wepons.find( (wepon)=> {
         return wepon.id == this.$store.state.wepon_type
       }).magnification
@@ -147,21 +149,30 @@ export default {
       return itemData;
     },
     getWindowWidth() { return this.$store.state.window_width; },
-    getWindowHeight() { 
-      console.log(window.innerHeight);
-      return window.innerHeight; },
-
+    getWindowHeight() { return window.innerHeight; },
   },
   methods: {
-    onChangeWeponType(e) {
-      const formdata = e.target.value
-      this.changeWeponType(parseInt(formdata));
+    onChangeWeponType(v) {
+      console.log(this.refresh_flg)
+      // optionの値を反映させるため再描画を行う。攻撃力selectをいったん非表示にする。
+      this.refresh_flg = true;
+      this.$store.commit('changeWeponType', parseInt(v));
+
+      const self = this;
+
+      // 再描画を行う
+      setTimeout(function(){
+        self.refresh_flg = false;
+
+      }, 100)
+
+
     },
-    onChangeWeponAtackMin(e) {
-      this.changeMinAtk(parseInt(e.target.value));
+    onChangeWeponAtackMin(v) {
+      this.$store.commit('changeMinAtk', parseInt(v));
     },
-    onChangeWeponAtackMax(e) {
-      this.changeMaxAtk(parseInt(e.target.value));
+    onChangeWeponAtackMax(v) {
+      this.$store.commit('changeMaxAtk', parseInt(v));
     },
     ...mapMutations([
       'changeWeponType',

@@ -61,7 +61,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "fecb39e352943b5ec4b7"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "b766746f664e4f4ab37e"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -12853,7 +12853,7 @@ exports = module.exports = __webpack_require__(67)(true);
 
 
 // module
-exports.push([module.i, "\n.form[data-v-58108ee0] {\n  margin-top: 40px;\n  background: #f1f1f1;\n  color: #363636;\n}\n.md-app[data-v-58108ee0] {\n  max-height: 400px;\n  border: 1px solid rgba(0, 0, 0, 0.12);\n}\n.large .md-app[data-v-58108ee0] {\n  max-height: none;\n}\nfooter[data-v-58108ee0] {\n  text-align: right;\n  padding: 4px 16px;\n  font-size: 12px;\n}\n", "", {"version":3,"sources":["C:/mysys/mhw_dmg_list/js/components/App.vue"],"names":[],"mappings":";AAAA;EACE,iBAAiB;EACjB,oBAAoB;EACpB,eAAe;CAAE;AAEnB;EACE,kBAAkB;EAClB,sCAAsC;CAAE;AAE1C;EACE,iBAAiB;CAAE;AAErB;EACE,kBAAkB;EAClB,kBAAkB;EAClB,gBAAgB;CAAE","file":"App.vue","sourcesContent":[".form {\n  margin-top: 40px;\n  background: #f1f1f1;\n  color: #363636; }\n\n.md-app {\n  max-height: 400px;\n  border: 1px solid rgba(0, 0, 0, 0.12); }\n\n.large .md-app {\n  max-height: none; }\n\nfooter {\n  text-align: right;\n  padding: 4px 16px;\n  font-size: 12px; }\n"],"sourceRoot":""}]);
+exports.push([module.i, "\n.form[data-v-58108ee0] {\n  margin-top: 40px;\n  background: #f1f1f1;\n  color: #363636;\n}\n.md-app[data-v-58108ee0] {\n  max-height: 400px;\n  border: 1px solid rgba(0, 0, 0, 0.12);\n}\n.md-content[data-v-58108ee0] {\n  padding: 16px 4px;\n}\n.large .md-app[data-v-58108ee0] {\n  max-height: none;\n}\nfooter[data-v-58108ee0] {\n  text-align: right;\n  padding: 4px 16px;\n  font-size: 12px;\n}\n", "", {"version":3,"sources":["C:/mysys/mhw_dmg_list/js/components/App.vue"],"names":[],"mappings":";AAAA;EACE,iBAAiB;EACjB,oBAAoB;EACpB,eAAe;CAAE;AAEnB;EACE,kBAAkB;EAClB,sCAAsC;CAAE;AAE1C;EACE,kBAAkB;CAAE;AAEtB;EACE,iBAAiB;CAAE;AAErB;EACE,kBAAkB;EAClB,kBAAkB;EAClB,gBAAgB;CAAE","file":"App.vue","sourcesContent":[".form {\n  margin-top: 40px;\n  background: #f1f1f1;\n  color: #363636; }\n\n.md-app {\n  max-height: 400px;\n  border: 1px solid rgba(0, 0, 0, 0.12); }\n\n.md-content {\n  padding: 16px 4px; }\n\n.large .md-app {\n  max-height: none; }\n\nfooter {\n  text-align: right;\n  padding: 4px 16px;\n  font-size: 12px; }\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -12867,7 +12867,7 @@ exports = module.exports = __webpack_require__(67)(true);
 
 
 // module
-exports.push([module.i, "\n.cellInner[data-v-a3991a98] {\n  margin: -6px -32px 0 -24px;\n}\n.sharpness[data-v-a3991a98] {\n  margin: 0;\n  text-align: center;\n  line-height: 2;\n}\n.sharpness.green[data-v-a3991a98] {\n    background: #35c155;\n}\n.sharpness.blue[data-v-a3991a98] {\n    background: #66dbff;\n}\n.sharpness.white[data-v-a3991a98] {\n    background: #f1f1f1;\n    color: #3f3f3f;\n}\n.atk[data-v-a3991a98] {\n  text-align: center;\n  font-size: 18px;\n  margin: 0.5em;\n}\n.cri1[data-v-a3991a98] {\n  color: #c33;\n}\n.cri2[data-v-a3991a98] {\n  color: #66dbff;\n}\n.cri3[data-v-a3991a98] {\n  color: #2b9844;\n}\n.cri4[data-v-a3991a98] {\n  color: #35c155;\n}\n.cri5[data-v-a3991a98] {\n  color: #8fe0a2;\n}\n.sharpnessTable[data-v-a3991a98] {\n  margin: -6px -32px 0px -24px;\n}\n", "", {"version":3,"sources":["C:/mysys/mhw_dmg_list/js/components/Item.vue"],"names":[],"mappings":";AAAA;EACE,2BAA2B;CAAE;AAE/B;EACE,UAAU;EACV,mBAAmB;EACnB,eAAe;CAAE;AACjB;IACE,oBAAoB;CAAE;AACxB;IACE,oBAAoB;CAAE;AACxB;IACE,oBAAoB;IACpB,eAAe;CAAE;AAErB;EACE,mBAAmB;EACnB,gBAAgB;EAChB,cAAc;CAAE;AAElB;EACE,YAAY;CAAE;AAEhB;EACE,eAAe;CAAE;AAEnB;EACE,eAAe;CAAE;AAEnB;EACE,eAAe;CAAE;AAEnB;EACE,eAAe;CAAE;AAEnB;EACE,6BAA6B;CAAE","file":"Item.vue","sourcesContent":[".cellInner {\n  margin: -6px -32px 0 -24px; }\n\n.sharpness {\n  margin: 0;\n  text-align: center;\n  line-height: 2; }\n  .sharpness.green {\n    background: #35c155; }\n  .sharpness.blue {\n    background: #66dbff; }\n  .sharpness.white {\n    background: #f1f1f1;\n    color: #3f3f3f; }\n\n.atk {\n  text-align: center;\n  font-size: 18px;\n  margin: 0.5em; }\n\n.cri1 {\n  color: #c33; }\n\n.cri2 {\n  color: #66dbff; }\n\n.cri3 {\n  color: #2b9844; }\n\n.cri4 {\n  color: #35c155; }\n\n.cri5 {\n  color: #8fe0a2; }\n\n.sharpnessTable {\n  margin: -6px -32px 0px -24px; }\n"],"sourceRoot":""}]);
+exports.push([module.i, "\n.cellInner[data-v-a3991a98] {\n  margin: -6px -32px 0 -24px;\n}\n.sharpness[data-v-a3991a98] {\n  margin: 0;\n  text-align: center;\n  line-height: 2;\n}\n.sharpness.green[data-v-a3991a98] {\n    background: #35c155;\n}\n.sharpness.blue[data-v-a3991a98] {\n    background: #66dbff;\n}\n.sharpness.white[data-v-a3991a98] {\n    background: #f1f1f1;\n    color: #3f3f3f;\n}\n.atk[data-v-a3991a98] {\n  text-align: center;\n  font-size: 18px;\n  margin: 0.5em;\n}\n.smallEm[data-v-a3991a98] {\n  font-weight: bold;\n}\n.em[data-v-a3991a98] {\n  font-size: 16px;\n}\n.cri1[data-v-a3991a98] {\n  color: #c33;\n}\n.cri2[data-v-a3991a98] {\n  line-height: 32px;\n  color: #66dbff;\n}\n.cri3[data-v-a3991a98] {\n  color: #2b9844;\n}\n.cri4[data-v-a3991a98] {\n  color: #35c155;\n}\n.cri5[data-v-a3991a98] {\n  color: #8fe0a2;\n}\n.sharpnessTable[data-v-a3991a98] {\n  margin: -6px -32px 0px -24px;\n  max-height: 321px;\n}\n", "", {"version":3,"sources":["C:/mysys/mhw_dmg_list/js/components/Item.vue"],"names":[],"mappings":";AAAA;EACE,2BAA2B;CAAE;AAE/B;EACE,UAAU;EACV,mBAAmB;EACnB,eAAe;CAAE;AACjB;IACE,oBAAoB;CAAE;AACxB;IACE,oBAAoB;CAAE;AACxB;IACE,oBAAoB;IACpB,eAAe;CAAE;AAErB;EACE,mBAAmB;EACnB,gBAAgB;EAChB,cAAc;CAAE;AAElB;EACE,kBAAkB;CAAE;AAEtB;EACE,gBAAgB;CAAE;AAEpB;EACE,YAAY;CAAE;AAEhB;EACE,kBAAkB;EAClB,eAAe;CAAE;AAEnB;EACE,eAAe;CAAE;AAEnB;EACE,eAAe;CAAE;AAEnB;EACE,eAAe;CAAE;AAEnB;EACE,6BAA6B;EAC7B,kBAAkB;CAAE","file":"Item.vue","sourcesContent":[".cellInner {\n  margin: -6px -32px 0 -24px; }\n\n.sharpness {\n  margin: 0;\n  text-align: center;\n  line-height: 2; }\n  .sharpness.green {\n    background: #35c155; }\n  .sharpness.blue {\n    background: #66dbff; }\n  .sharpness.white {\n    background: #f1f1f1;\n    color: #3f3f3f; }\n\n.atk {\n  text-align: center;\n  font-size: 18px;\n  margin: 0.5em; }\n\n.smallEm {\n  font-weight: bold; }\n\n.em {\n  font-size: 16px; }\n\n.cri1 {\n  color: #c33; }\n\n.cri2 {\n  line-height: 32px;\n  color: #66dbff; }\n\n.cri3 {\n  color: #2b9844; }\n\n.cri4 {\n  color: #35c155; }\n\n.cri5 {\n  color: #8fe0a2; }\n\n.sharpnessTable {\n  margin: -6px -32px 0px -24px;\n  max-height: 321px; }\n"],"sourceRoot":""}]);
 
 // exports
 
@@ -14651,6 +14651,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
 
 var _vuex = __webpack_require__(66);
 
@@ -14671,11 +14672,12 @@ exports.default = {
     return {
       menuVisible: false,
       wepons: _const.wepons,
+      atacks: [230, 220, 210, 200, 190, 180, 170, 160, 150, 140, 130, 120, 110, 100, 90, 80],
       wepon_type: this.$store.state.wepon_type,
       min_atk: this.$store.state.min_atk,
       max_atk: this.$store.state.max_atk,
-      atacks: [250, 240, 230, 220, 210, 200, 190, 180, 170, 160, 150, 140, 130, 120, 110, 100, 90, 80],
-      sharp: _const.sharp
+      sharp: _const.sharp,
+      refresh_flg: false // optionの最新値を反映させるため再描画させるフラグ
     };
   },
 
@@ -14686,7 +14688,7 @@ exports.default = {
     wepon_magnification: function wepon_magnification() {
       var _this = this;
 
-      console.log('wepon_magnification');
+      console.log('wepon_magnification', this.$store.state.wepon_type);
       return _const.wepons.find(function (wepon) {
         return wepon.id == _this.$store.state.wepon_type;
       }).magnification;
@@ -14720,20 +14722,28 @@ exports.default = {
       return this.$store.state.window_width;
     },
     getWindowHeight: function getWindowHeight() {
-      console.log(window.innerHeight);
       return window.innerHeight;
     }
   },
   methods: _extends({
-    onChangeWeponType: function onChangeWeponType(e) {
-      var formdata = e.target.value;
-      this.changeWeponType(parseInt(formdata));
+    onChangeWeponType: function onChangeWeponType(v) {
+      console.log(this.refresh_flg);
+      // optionの値を反映させるため再描画を行う。攻撃力selectをいったん非表示にする。
+      this.refresh_flg = true;
+      this.$store.commit('changeWeponType', parseInt(v));
+
+      var self = this;
+
+      // 再描画を行う
+      setTimeout(function () {
+        self.refresh_flg = false;
+      }, 100);
     },
-    onChangeWeponAtackMin: function onChangeWeponAtackMin(e) {
-      this.changeMinAtk(parseInt(e.target.value));
+    onChangeWeponAtackMin: function onChangeWeponAtackMin(v) {
+      this.$store.commit('changeMinAtk', parseInt(v));
     },
-    onChangeWeponAtackMax: function onChangeWeponAtackMax(e) {
-      this.changeMaxAtk(parseInt(e.target.value));
+    onChangeWeponAtackMax: function onChangeWeponAtackMax(v) {
+      this.$store.commit('changeMaxAtk', parseInt(v));
     }
   }, (0, _vuex.mapMutations)(['changeWeponType', 'changeMinAtk', 'changeMaxAtk'])),
   filters: {}
@@ -14751,6 +14761,16 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -14854,7 +14874,6 @@ exports.default = {
       return this.item.head;
     },
     sharpGreen: function sharpGreen() {
-      console.log(this);
       return this.item.data[0];
     },
     sharpBlue: function sharpBlue() {
@@ -14937,7 +14956,7 @@ var MhwDmgListApp = new _vue2.default({
   el: '#vueApp',
   methods: _extends({
     setWindowWidth: function setWindowWidth(e) {
-      this.changeWindowWidth(window.innerWidth);
+      this.$store.commit('changeWindowWidth', window.innerWidth);
     }
   }, (0, _vuex.mapMutations)(['changeWindowWidth'])),
   created: function created() {
@@ -51142,9 +51161,11 @@ var render = function() {
     ? _c(
         "md-table-row",
         [
-          _c("md-table-cell", { staticStyle: { "font-size": "16px" } }, [
-            _vm._v(_vm._s(_vm.rowHeader))
-          ]),
+          _c(
+            "md-table-cell",
+            { staticStyle: { "font-size": "16px", overflow: "auto" } },
+            [_vm._v(_vm._s(_vm.rowHeader))]
+          ),
           _vm._v(" "),
           _c("md-table-cell", [
             _c(
@@ -51158,6 +51179,7 @@ var render = function() {
                     function(sharp, index) {
                       return _c(
                         "md-table-row",
+                        { key: index },
                         [
                           _c("md-table-cell", [
                             _c("div", { staticClass: "cellInner" }, [
@@ -51179,43 +51201,31 @@ var render = function() {
                                   ])
                                 : _vm._e(),
                               _vm._v(" "),
-                              _c("p", { staticClass: "atk" }, [
-                                _vm._v(_vm._s(sharp))
-                              ]),
-                              _vm._v(" "),
                               _c(
                                 "div",
                                 { staticClass: "md-layout md-gutter" },
                                 [
                                   _c(
-                                    "div",
-                                    { staticClass: "md-layout-item cri1" },
-                                    [
-                                      _vm._v(
-                                        "負会心：" +
-                                          _vm._s(
-                                            Math.floor(
-                                              sharp *
-                                                _vm.critical[1].magnification
-                                            )
-                                          )
-                                      )
-                                    ]
+                                    "p",
+                                    { staticClass: "md-layout-item atk" },
+                                    [_vm._v(_vm._s(sharp))]
                                   ),
                                   _vm._v(" "),
                                   _c(
                                     "div",
                                     { staticClass: "md-layout-item cri2" },
                                     [
-                                      _vm._v(
-                                        "会心：" +
+                                      _vm._v("会心："),
+                                      _c("span", { staticClass: "smallEm" }, [
+                                        _vm._v(
                                           _vm._s(
                                             Math.floor(
                                               sharp *
                                                 _vm.critical[2].magnification
                                             )
                                           )
-                                      )
+                                        )
+                                      ])
                                     ]
                                   )
                                 ]
@@ -51227,33 +51237,61 @@ var render = function() {
                                 [
                                   _c(
                                     "div",
+                                    { staticClass: "md-layout-item cri1" },
+                                    [
+                                      _vm._v("負会心："),
+                                      _c("span", { staticClass: "smallEm" }, [
+                                        _vm._v(
+                                          _vm._s(
+                                            Math.floor(
+                                              sharp *
+                                                _vm.critical[1].magnification
+                                            )
+                                          )
+                                        )
+                                      ])
+                                    ]
+                                  ),
+                                  _vm._v(" "),
+                                  _c(
+                                    "div",
                                     { staticClass: "md-layout-item cri3" },
                                     [
-                                      _vm._v(
-                                        "超1:" +
+                                      _vm._v("超1："),
+                                      _c("span", { staticClass: "smallEm" }, [
+                                        _vm._v(
                                           _vm._s(
                                             Math.floor(
                                               sharp *
                                                 _vm.critical[3].magnification
                                             )
                                           )
-                                      )
+                                        )
+                                      ])
                                     ]
-                                  ),
-                                  _vm._v(" "),
+                                  )
+                                ]
+                              ),
+                              _vm._v(" "),
+                              _c(
+                                "div",
+                                { staticClass: "md-layout md-gutter" },
+                                [
                                   _c(
                                     "div",
                                     { staticClass: "md-layout-item cri4" },
                                     [
-                                      _vm._v(
-                                        "超2:" +
+                                      _vm._v("超2："),
+                                      _c("span", { staticClass: "smallEm" }, [
+                                        _vm._v(
                                           _vm._s(
                                             Math.floor(
                                               sharp *
                                                 _vm.critical[4].magnification
                                             )
                                           )
-                                      )
+                                        )
+                                      ])
                                     ]
                                   ),
                                   _vm._v(" "),
@@ -51261,15 +51299,17 @@ var render = function() {
                                     "div",
                                     { staticClass: "md-layout-item cri5" },
                                     [
-                                      _vm._v(
-                                        "超3:" +
+                                      _vm._v("超3："),
+                                      _c("span", { staticClass: "smallEm" }, [
+                                        _vm._v(
                                           _vm._s(
                                             Math.floor(
                                               sharp *
                                                 _vm.critical[5].magnification
                                             )
                                           )
-                                      )
+                                        )
+                                      ])
                                     ]
                                   )
                                 ]
@@ -51300,45 +51340,55 @@ var render = function() {
             sharp,
             index
           ) {
-            return _c("md-table-cell", [
+            return _c("md-table-cell", { key: index }, [
               _c("p", { staticClass: "atk" }, [_vm._v(_vm._s(sharp))]),
               _vm._v(" "),
               _c("div", { staticClass: "md-layout md-gutter" }, [
                 _c("div", { staticClass: "md-layout-item cri1" }, [
-                  _vm._v(
-                    "負会心：" +
+                  _vm._v("負会心："),
+                  _c("span", { staticClass: "em" }, [
+                    _vm._v(
                       _vm._s(Math.floor(sharp * _vm.critical[1].magnification))
-                  )
+                    )
+                  ])
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "md-layout-item cri2" }, [
-                  _vm._v(
-                    "会心：" +
+                  _vm._v("会心："),
+                  _c("span", { staticClass: "em" }, [
+                    _vm._v(
                       _vm._s(Math.floor(sharp * _vm.critical[2].magnification))
-                  )
+                    )
+                  ])
                 ])
               ]),
               _vm._v(" "),
               _c("div", { staticClass: "md-layout md-gutter" }, [
                 _c("div", { staticClass: "md-layout-item cri3" }, [
-                  _vm._v(
-                    "超1:" +
+                  _vm._v("超1："),
+                  _c("span", { staticClass: "em" }, [
+                    _vm._v(
                       _vm._s(Math.floor(sharp * _vm.critical[3].magnification))
-                  )
+                    )
+                  ])
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "md-layout-item cri4" }, [
-                  _vm._v(
-                    "超2:" +
+                  _vm._v("超2："),
+                  _c("span", { staticClass: "em" }, [
+                    _vm._v(
                       _vm._s(Math.floor(sharp * _vm.critical[4].magnification))
-                  )
+                    )
+                  ])
                 ]),
                 _vm._v(" "),
                 _c("div", { staticClass: "md-layout-item cri5" }, [
-                  _vm._v(
-                    "超3:" +
+                  _vm._v("超3："),
+                  _c("span", { staticClass: "em" }, [
+                    _vm._v(
                       _vm._s(Math.floor(sharp * _vm.critical[5].magnification))
-                  )
+                    )
+                  ])
                 ])
               ])
             ])
@@ -51407,12 +51457,7 @@ var render = function() {
                             "md-select",
                             {
                               attrs: { name: "wepon_type", id: "wepon_type" },
-                              on: {
-                                change: function($event) {
-                                  $event.preventDefault()
-                                  _vm.onChangeWeponType($event)
-                                }
-                              },
+                              on: { "md-selected": _vm.onChangeWeponType },
                               model: {
                                 value: _vm.wepon_type,
                                 callback: function($$v) {
@@ -51421,10 +51466,10 @@ var render = function() {
                                 expression: "wepon_type"
                               }
                             },
-                            _vm._l(_vm.wepons, function(wepon) {
+                            _vm._l(_vm.wepons, function(wepon, index) {
                               return _c(
                                 "md-option",
-                                { attrs: { value: wepon.id } },
+                                { key: index, attrs: { value: wepon.id } },
                                 [_vm._v(_vm._s(wepon.name))]
                               )
                             })
@@ -51447,42 +51492,45 @@ var render = function() {
                         [
                           _c("label", [_vm._v("武器攻撃力")]),
                           _vm._v(" "),
-                          _c(
-                            "md-select",
-                            {
-                              attrs: { name: "wep_atk_max", type: "number" },
-                              on: {
-                                change: function($event) {
-                                  $event.preventDefault()
-                                  _vm.onChangeWeponAtackMin($event)
-                                }
-                              },
-                              model: {
-                                value: _vm.min_atk,
-                                callback: function($$v) {
-                                  _vm.min_atk = $$v
+                          !_vm.refresh_flg
+                            ? _c(
+                                "md-select",
+                                {
+                                  attrs: {
+                                    name: "wep_atk_max",
+                                    type: "number"
+                                  },
+                                  on: {
+                                    "md-selected": _vm.onChangeWeponAtackMin
+                                  },
+                                  model: {
+                                    value: _vm.min_atk,
+                                    callback: function($$v) {
+                                      _vm.min_atk = $$v
+                                    },
+                                    expression: "min_atk"
+                                  }
                                 },
-                                expression: "min_atk"
-                              }
-                            },
-                            _vm._l(_vm.atacks.concat().reverse(), function(
-                              atack
-                            ) {
-                              return _c(
-                                "md-option",
-                                { attrs: { value: atack } },
-                                [
-                                  _vm._v(
-                                    _vm._s(
-                                      Math.floor(
-                                        atack * _vm.wepon_magnification
+                                _vm._l(_vm.atacks.concat().reverse(), function(
+                                  atack,
+                                  index
+                                ) {
+                                  return _c(
+                                    "md-option",
+                                    { key: index, attrs: { value: atack } },
+                                    [
+                                      _vm._v(
+                                        _vm._s(
+                                          Math.floor(
+                                            atack * _vm.wepon_magnification
+                                          )
+                                        )
                                       )
-                                    )
+                                    ]
                                   )
-                                ]
+                                })
                               )
-                            })
-                          )
+                            : _vm._e()
                         ],
                         1
                       )
@@ -51510,40 +51558,42 @@ var render = function() {
                       _c(
                         "md-field",
                         [
-                          _c(
-                            "md-select",
-                            {
-                              attrs: { name: "wep_atk_min", type: "number" },
-                              on: {
-                                change: function($event) {
-                                  $event.preventDefault()
-                                  _vm.onChangeWeponAtackMax($event)
-                                }
-                              },
-                              model: {
-                                value: _vm.max_atk,
-                                callback: function($$v) {
-                                  _vm.max_atk = $$v
+                          !_vm.refresh_flg
+                            ? _c(
+                                "md-select",
+                                {
+                                  attrs: {
+                                    name: "wep_atk_min",
+                                    type: "number"
+                                  },
+                                  on: {
+                                    "md-selected": _vm.onChangeWeponAtackMax
+                                  },
+                                  model: {
+                                    value: _vm.max_atk,
+                                    callback: function($$v) {
+                                      _vm.max_atk = $$v
+                                    },
+                                    expression: "max_atk"
+                                  }
                                 },
-                                expression: "max_atk"
-                              }
-                            },
-                            _vm._l(_vm.atacks, function(atack) {
-                              return _c(
-                                "md-option",
-                                { attrs: { value: atack } },
-                                [
-                                  _vm._v(
-                                    _vm._s(
-                                      Math.floor(
-                                        atack * _vm.wepon_magnification
+                                _vm._l(_vm.atacks, function(atack, index) {
+                                  return _c(
+                                    "md-option",
+                                    { key: index, attrs: { value: atack } },
+                                    [
+                                      _vm._v(
+                                        _vm._s(
+                                          Math.floor(
+                                            atack * _vm.wepon_magnification
+                                          )
+                                        )
                                       )
-                                    )
+                                    ]
                                   )
-                                ]
+                                })
                               )
-                            })
-                          )
+                            : _vm._e()
                         ],
                         1
                       )
