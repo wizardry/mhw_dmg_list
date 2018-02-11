@@ -26,8 +26,8 @@ export const wepons = [
 ];
 
 export const critical = [
-  {name: '会心無', id: 0, magnification: 0.75},
-  {name: 'マイナス会心', id: 1, magnification: 1.00},
+  {name: '会心無', id: 0, magnification: 1.00},
+  {name: 'マイナス会心', id: 1, magnification: 0.75},
   {name: '会心', id: 2, magnification: 1.25},
   {name: '超会心1', id: 3, magnification: 1.30},
   {name: '超会心2', id: 4, magnification: 1.35},

@@ -7,6 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "webpack": "webpack",
     "server": "webpack-dev-server --inline --hot",
+    "server2": "webpack-dev-server --inline",
     "watch": "gulp"
   },
   "author": "",
@@ -39,6 +40,8 @@
     "vue": "^2.5.4",
     "vue-hot-reload-api": "^2.2.0",
     "vue-loader": "^13.3.0",
+    "vue-material": "^1.0.0-beta-7",
+    "vue-mdl": "^1.1.1",
     "vue-router": "^3.0.1",
     "vue-style-loader": "^3.0.3",
     "vue-template-compiler": "^2.5.6",

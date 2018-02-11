@@ -2,6 +2,24 @@
 header {
 }
 .mainContent {
+  table {
+    border-collapse: collapse;
+    border: 1px solid #3f3f3f;
+
+    th,td {
+      padding: 8px;  
+      border: 1px solid #3f3f3f;
+    }
+
+    th {
+      background: #565656;
+      font-weight: bold;
+      color: #cfcfcf;
+    }
+
+    td {
+    }
+  }
 }
 footer {
 }
@@ -25,32 +43,25 @@ footer {
         <dl>
           <dt>武器攻撃力</dt>
           <dd>
-            <select name="wep_atk_max" type="number" @change.prevent="onChangeWeponAtackMax">
-              <option v-for="atack in atacks.concat().reverse()" :value="atack">{{atack * wepon_magnification }}</option>
+            <select name="wep_atk_max" type="number" @change.prevent="onChangeWeponAtackMin">
+              <option v-for="atack in atacks.concat().reverse()" :value="atack">{{Math.floor(atack * wepon_magnification) }}</option>
             </select>
             ～
-            <select name="wep_atk_min" type="number" @change.prevent="onChangeWeponAtackMin">
-              <option v-for="atack in atacks" :value="atack">{{atack * wepon_magnification }}</option>
+            <select name="wep_atk_min" type="number" @change.prevent="onChangeWeponAtackMax">
+              <option v-for="atack in atacks" :value="atack">{{Math.floor(atack * wepon_magnification) }}</option>
             </select>
-          </dd>
-        </dl>
-        <dl>
-          <dt>基礎攻撃力</dt>
-          <dd>
-            <input name="bas_atk_max" type="number" @change.prevent="onChangeBasicAtackMax">
-            ～
-            <input name="bas_atk_max" type="number" @change.prevent="onChangeBasicAtackMin">
           </dd>
         </dl>
       </form>
       <div class="mainContent">
-        <div class="sharp_list" v-if="render_type == 0">
+        <div class="sharp_list">
           <table>
-            <item v-for="(item, index) in items" :key="index" :item="item"></item>
-          </table>
-        </div>
-        <div class="critical_list" v-if="render_type != 0">
-          <table>
+            <thead>
+              <th>基礎攻撃力 / 切れ味</th>
+              <th>切れ味：緑</th>
+              <th>切れ味：青</th>
+              <th>切れ味：白</th>
+            </thead>
             <item v-for="(item, index) in items" :key="index" :item="item"></item>
           </table>
         </div>
@@ -71,9 +82,8 @@ export default {
     return {
       wepons: wepons,
       current_wepon: 0,
-      atacks: [ 220, 210, 200, 190, 180, 170, 160, 150, 140, 130, 120, 110, 100, 90, 80],
+      atacks: [ 250, 240, 230, 220, 210, 200, 190, 180, 170, 160, 150, 140, 130, 120, 110, 100, 90, 80],
       sharp: sharp,
-      critical: critical,
       sharp_table: [],
       critical_table: [],
     }
@@ -83,11 +93,6 @@ export default {
   beforeMount() {
   },
   computed: {
-    render_type() {
-      return 0;
-      return this.$store.state.render_type
-    },
-
     wepon_magnification() {
       console.log('wepon_magnification')
       return wepons.find( (wepon)=> {
@@ -98,46 +103,49 @@ export default {
     items () {
       const min = this.$store.state.min_atk;
       const max = this.$store.state.max_atk;
-      debugger
+
+      let infiniteFlg = false;
 
       // itemsは連想配列
       // minから10刻みでmaxまでの配列に更に切れ味or会心率のパターン分の列ができる。
-      let items = [];
+      let itemData = [];
 
-      if (this.$store.state.render_type == 0) {
-        for (var i = min; i < max; i+10) {
-          items.push({
-            head:i,
-            data:[
-              [i*sharp[3].phy],
-              [i*sharp[4].phy],
-              [i*sharp[5].phy]
-            ]
-          });
-        };
-      } else {
-        for (var i = min; i < max; i+10) {
-          items.push({
-            head:i,
-            data:critical.map( (d) => {
-              return i * d.magnification 
-            })
-          });
-        };
-      }
+      for (var i = min; i <= max; i = i+10) {
+        itemData.push({
+          head:Math.floor(i * this.wepon_magnification),
+          data:[
+            Math.floor(i*sharp[3].phy * this.wepon_magnification),
+            Math.floor(i*sharp[4].phy * this.wepon_magnification),
+            Math.floor(i*sharp[5].phy * this.wepon_magnification)
+          ]
+        });
+        if(infiniteFlg != i){
+          infiniteFlg = i
+        }else{
+          // debugger
+        }
+      };
 
-      debugger
-      console.log(items)
-      return items;
+      console.log(min, max, itemData)
+      return itemData;
     },
   },
   methods: {
     onChangeWeponType(e) {
-      const formdata = e.target.wepon_type
-      return null
-
+      const formdata = e.target.value
+      this.changeWeponType(parseInt(formdata));
+    },
+    onChangeWeponAtackMin(e) {
+      this.changeMinAtk(parseInt(e.target.value));
+    },
+    onChangeWeponAtackMax(e) {
+      this.changeMaxAtk(parseInt(e.target.value));
     },
     ...mapMutations([
+      'changeWeponType',
+      'changeMinAtk',
+      'changeMaxAtk'
+
     ])
   },
   filters: {
