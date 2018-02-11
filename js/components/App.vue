@@ -81,7 +81,7 @@ footer {
         </section>
       </md-app-content>
     </md-app>
-    <footer>developper by <a href="https://twitter.com/wiz_rein" target="_blank">wiz_rein</footer>
+    <footer>developper by <a href="https://twitter.com/wiz_rein" target="_blank">wiz_rein</a></footer>
   </div>
 </template>
 

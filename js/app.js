@@ -19,7 +19,6 @@ var MhwDmgListApp = new Vue({
   el: '#vueApp',
   methods: {
     setWindowWidth(e) {
-      console.log(window.innerWidth)
       this.changeWindowWidth(window.innerWidth);
     },
     ...mapMutations([
